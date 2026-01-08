@@ -1,202 +1,286 @@
-import { useLoaderData, useLocation, useNavigate, } from "react-router-dom";
-import detailsImg from '../../../../assets/images/category/rabbit/rabbit4.jpg'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import detailsImg from "../../../../assets/images/category/rabbit/rabbit4.jpg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 import { Rating } from "@smastrom/react-rating";
-import { useState } from "react";
+import { useState } from "react"; // useState ekhane use kora hoyeche
 import useAuth from "../../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useCart from "../../../../hooks/useCart";
-// tabs class
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import {
+  FaShoppingCart,
+  FaTruck,
+  FaClock,
+  FaShieldAlt,
+  FaPlus,
+  FaMinus,
+} from "react-icons/fa";
+
 const PetFoodDetails = () => {
-    const [count, setCount] = useState(1)
-    const navigate = useNavigate()
-    const details = useLoaderData()
-    const { user } = useAuth()
-    const location = useLocation()
-    const axiosSecure = useAxiosSecure()
-    const [, refetch] = useCart()
+  const [count, setCount] = useState(1);
+  const [tabIndex, setTabIndex] = useState(0);
 
+  const navigate = useNavigate();
+  const details = useLoaderData();
+  const { user } = useAuth();
+  const location = useLocation();
+  const axiosSecure = useAxiosSecure();
+  const [, refetch] = useCart();
 
-    const { _id, name, image, price, rating,  sku, longDescription, notPrice } = details || {};
-    console.log(details.photos);
+  const {
+    _id,
+    name,
+    image,
+    price,
+    rating,
+    sku,
+    longDescription,
+    shortDescription,
+    notPrice,
+    photos,
+  } = details || {};
 
-
-    // add to cart details
-    const handleAdToCart = () => {
-        // console.log(item);
-        if (user && user.email) {
-            // DONE: add to the cart information this item,
-            const cartItem = {
-                foodId: _id,
-                email: user.email,
-                name,
-                image,
-                price
-            }
-            axiosSecure.post('/api/v1/carts', cartItem)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.insertedId) {
-                        refetch()
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: `Your ${name} order successfully and added to the cart`,
-                            showConfirmButton: false,
-                            timer: 2500
-                        });
-                    }
-                })
-
+  const handleAdToCart = () => {
+    if (user && user.email) {
+      const cartItem = {
+        foodId: _id,
+        email: user.email,
+        name,
+        image,
+        price,
+        quantity: count,
+      };
+      axiosSecure.post("/api/v1/carts", cartItem).then((res) => {
+        if (res.data.insertedId) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${name} added to cart!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
-        else {
-            // go to the login
-            Swal.fire({
-                title: "you are not login?",
-                text: "if you log in than you add to the cart this item!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, log in!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate('/login', { state: { from: location } })
-
-                }
-            });
+      });
+    } else {
+      Swal.fire({
+        title: "Please Login",
+        text: "Login required to add items to cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Login Now",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
         }
+      });
     }
+  };
 
+  return (
+    <div className="bg-white pb-20">
+      {/* Banner Section */}
+      <div className="relative h-[250px] md:h-[400px] w-full mb-10 overflow-hidden rounded-b-[50px] shadow-lg">
+        <img
+          className="h-full w-full object-cover"
+          src={detailsImg}
+          alt="Banner"
+        />
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <h2 className="text-white text-3xl md:text-6xl font-bold uppercase tracking-widest font-serif text-center px-4">
+            Product Details
+          </h2>
+        </div>
+      </div>
 
-    // tabs
-    const [tabIndex, setTabIndex] = useState(0);
-
-
-
-    return (
-        <div className="mb-20 ">
-            <div className=' mb-52'>
-                <img className='h-[450px] w-full object-cover rounded-xl ' src={detailsImg} alt="" />
-                <h2 className='-mt-36 ml-24 uppercase text-white text-5xl'> Pet Food Details  </h2>
-
+      <div className="container mx-auto px-4 md:px-10">
+        <div className="flex flex-col lg:flex-row gap-12 bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-slate-100">
+          {/* Left Side: Product Carousel */}
+          <div className="lg:flex-1 w-full overflow-hidden">
+            <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-inner">
+              <Carousel
+                showArrows={true}
+                infiniteLoop={true}
+                showStatus={false}
+                thumbWidth={80}
+              >
+                {photos?.map((img, index) => (
+                  <div key={index} className="h-[300px] md:h-[500px]">
+                    <img
+                      className="h-full w-full object-contain"
+                      src={img.photo}
+                      alt={name}
+                    />
+                  </div>
+                ))}
+              </Carousel>
             </div>
-            {/* carousel */}
-            <div className="flex flex-col md:flex-row px-5 md:px-0">
-                <div className=" md:flex-1 h-1/2 w-full">
-                    <Carousel>
+          </div>
 
-                        {
-                            details.photos.map(img => <img className="w-full" key={img} src={img.photo} alt="" />)
-
-
-                        }
-                    </Carousel>
-                </div>
-                {/* content */}
-                <div className="md:flex-1  p-5">
-                    <div className="">
-                        <h1 className="text-4xl font-mono font-bold text-gray-500">{name} 250g pack</h1>
-                        <div className="flex items-center "><Rating
-                            className="mt-2 mr-7"
-                            style={{ maxWidth: 180 }}
-                            value={rating}
-                            readOnly
-                        />
-                            <p className="text-xl">({rating}) 2 reviews <span className="text-md text-green-500 font-bold border px-[3px]">in stock</span> </p></div>
-
-                        <div className="mt-5">
-                            <p className="text-xl font-serif"><span className="text-5xl mr-2 text-red-500 ">${price}</span>
-                                <span className="line-through text-3xl p-2">${notPrice}</span></p>
-                        </div>
-                        <p className="text-xl mt-5 text-gray-500">{sku}</p>
-                        <div className="divider divide-blue-200"></div>
-                        <p className="text-gray-500">{longDescription}</p>
-                        <ul className="list-disc mt-10 bg-sky-100 p-5 text-xl rounded-md hover:bg-gray-300 capitalize duration-500 ">
-                            <li>estimated delivery time 5-10 days</li>
-                            <li>expired data after 10 month </li>
-                            <li>this pet food is totally healthy</li>
-                        </ul>
-                        <div className="mt-10 flex items-center  ">
-                            <div className="text-2xl font-serif  flex space-x-5 ">
-                                <button onClick={() => setCount((prev) => prev - 1)}
-                                    className="text-3xl border px-6 btn  "
-                                >-</button>
-                                <h1>{count}</h1>
-                                <button onClick={() => setCount((prev) => prev + 1)}
-                                    className="text-3xl border px-6 btn  "
-                                >+</button>
-
-                            </div>
-                            <div className=" mx-auto  ">
-                                <button onClick={handleAdToCart} className="uppercase font-serif bg-sky-200  px-12 md:px-16 py-3 rounded-md hover:bg-gray-300 duration-500">ADD To  cart </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          {/* Right Side: Product Info */}
+          <div className="lg:flex-1 space-y-6">
+            <div className="space-y-2">
+              <span className="text-sky-500 font-bold tracking-widest text-sm uppercase">
+                Pet Food Store
+              </span>
+              <h1 className="text-3xl md:text-5xl font-bold text-slate-800">
+                {name}
+              </h1>
+              <div className="flex flex-wrap items-center gap-4">
+                <Rating style={{ maxWidth: 120 }} value={rating} readOnly />
+                <span className="text-slate-400 text-sm">
+                  ({rating} Reviews)
+                </span>
+                <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  In Stock
+                </span>
+              </div>
             </div>
 
-
-            {/*tab*/}
-            <div className="md:w-1/2 px-5 md:px-0">
-                <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList>
-                        <Tab><p className="text-xl font-medium font-sans">Description</p></Tab>
-                        <Tab>
-                            <p className="text-xl font-medium font-sans">Excessive info</p>
-                        </Tab>
-                        <Tab>
-                            <p className="text-xl font-medium font-sans">Review</p>
-                        </Tab>
-
-
-                    </TabList>
-                    <TabPanel>
-                        <div className="space-y-4">
-                            <p className="">{longDescription}</p>
-                            <p>This is a type of food that is specifically formulated and intended for consumption by pets. It is usually sold in the form of dry kibble or wet cans, and is designed to meet the nutritional needs of a variety of different types of pets, including dogs, cats, and small animals like guinea pigs and rabbits.</p>
-                            <p>This food may help from a variety of different ingredients, including meat, grains, vegetables, and fortified vitamins and minerals. Some pet food is formulated for specific life stages, such as puppy or senior, and may contain higher levels of certain nutrients to support the needs of pets at those stages of life.</p>
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div>
-                            <h1 className="text-xl font-bold mb-3 ">Pet Food Overload: Navigating Through Excessive Information</h1>
-                            <p>With so many pet food options and opinions out there, it’s easy to feel overwhelmed. From kibble to raw diets, grain-free to organic, the sheer volume of information can make choosing the right food for your pet seem daunting.</p>
-                            <p>
-                                <b>Cutting Through the Noise:</b>
-                                Not all advice is created equal. When it comes to your pet’s diet, it&apos;s important to rely on evidence-based information and consult with your veterinarian. They can help you sort through the noise and make informed decisions tailored to your pet’s specific needs.
-                            </p>
-                            <p><b>Key Considerations:</b>
-                                Focus on the basics: balanced nutrition, quality ingredients, and your pet’s individual dietary requirements. Avoid getting lost in trends or marketing buzzwords that may not align with your pet&apos;s health.
-                            </p>
-                            <p>
-                                <b>Making Informed Choices:</b>
-                                While it’s helpful to be informed, too much conflicting advice can lead to confusion. Stick to trusted brands and sources, and remember that the best diet for your pet is one that keeps them healthy, happy, and full of energy.
-                            </p>
-                        </div>
-
-                    </TabPanel>
-                    <TabPanel>
-                        <div>
-                            <div className="flex flex-col items-center "><Rating
-                                className="mt-2 mr-7"
-                                style={{ maxWidth: 180 }}
-                                value={rating}
-                                readOnly
-                            />
-                                <p className="text-xl">({rating}) 2 reviews  </p></div>
-                        </div>
-                    </TabPanel>
-                </Tabs>
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+              <div className="flex items-baseline gap-4">
+                <span className="text-4xl md:text-5xl font-bold text-rose-500">
+                  ${price}
+                </span>
+                {notPrice && (
+                  <span className="text-2xl text-slate-400 line-through">
+                    ${notPrice}
+                  </span>
+                )}
+              </div>
+              <p className="text-slate-400 text-sm mt-2 font-medium">
+                SKU: <span className="text-slate-600 font-mono">{sku}</span>
+              </p>
             </div>
 
+            <p className="text-slate-600 leading-relaxed italic border-l-4 border-sky-400 pl-4 bg-sky-50/30 py-2">
+              {shortDescription || longDescription?.slice(0, 150)}...
+            </p>
+
+            {/* Feature Tags */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-medium text-slate-700">
+              <div className="flex items-center gap-2 bg-sky-50 p-3 rounded-xl">
+                <FaTruck className="text-sky-500" /> Delivery: 5-10 Days
+              </div>
+              <div className="flex items-center gap-2 bg-orange-50 p-3 rounded-xl">
+                <FaClock className="text-orange-500" /> Expired: 10 Months
+              </div>
+              <div className="flex items-center gap-2 bg-green-50 p-3 rounded-xl">
+                <FaShieldAlt className="text-green-500" /> 100% Healthy Food
+              </div>
+            </div>
+
+            {/* Quantity & Add to Cart */}
+            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
+              <div className="flex items-center border-2 border-slate-200 rounded-2xl overflow-hidden bg-white">
+                <button
+                  onClick={() => setCount(Math.max(1, count - 1))}
+                  className="px-5 py-4 hover:bg-slate-100 transition-colors text-slate-600"
+                >
+                  <FaMinus />
+                </button>
+                <span className="px-8 font-bold text-xl text-slate-800 min-w-[60px] text-center">
+                  {count}
+                </span>
+                <button
+                  onClick={() => setCount(count + 1)}
+                  className="px-5 py-4 hover:bg-slate-100 transition-colors text-slate-600"
+                >
+                  <FaPlus />
+                </button>
+              </div>
+              <button
+                onClick={handleAdToCart}
+                className="w-full sm:flex-1 bg-sky-500 hover:bg-slate-800 text-white font-bold py-4 rounded-2xl shadow-lg shadow-sky-100 transition-all duration-300 flex items-center justify-center gap-3 text-lg"
+              >
+                <FaShoppingCart /> ADD TO CART
+              </button>
+            </div>
+          </div>
         </div>
 
-    );
+        {/* Tabs Section */}
+        <div className="mt-16 md:mt-24 max-w-4xl mx-auto">
+          <Tabs
+            selectedIndex={tabIndex}
+            onSelect={(index) => setTabIndex(index)}
+            className="custom-tabs border-none"
+          >
+            <TabList className="flex flex-wrap gap-4 md:gap-8 border-b border-slate-200 mb-8">
+              {["Description", "Nutritional Info", "Reviews"].map(
+                (label, i) => (
+                  <Tab
+                    key={i}
+                    className={`pb-4 cursor-pointer font-bold text-base md:text-lg outline-none transition-all ${
+                      tabIndex === i
+                        ? "text-sky-500 border-b-4 border-sky-500"
+                        : "text-slate-400 border-b-4 border-transparent hover:text-slate-600"
+                    }`}
+                  >
+                    {label}
+                  </Tab>
+                )
+              )}
+            </TabList>
+
+            <div className="p-6 md:p-10 bg-slate-50 rounded-3xl border border-slate-100 leading-relaxed text-slate-600 shadow-sm">
+              <TabPanel>
+                <div className="space-y-4 animate-in fade-in duration-500">
+                  <h3 className="text-xl font-bold text-slate-800">
+                    Product Overview
+                  </h3>
+                  <p>{longDescription}</p>
+                  <p>
+                    Our specifically formulated food ensures your pet gets the
+                    balanced diet they deserve, packed with essential minerals
+                    and proteins.
+                  </p>
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="space-y-4 animate-in fade-in duration-500">
+                  <h4 className="text-xl font-bold text-slate-800">
+                    Why Choose This Food?
+                  </h4>
+                  <p>
+                    We use evidence-based nutrition to sort through the noise of
+                    marketing trends. Our focus is on balanced nutrition and
+                    quality ingredients.
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 pl-5 list-disc font-medium text-slate-700">
+                    <li>High Protein Content</li>
+                    <li>No Artificial Preservatives</li>
+                    <li>Veterinarian Recommended</li>
+                    <li>Omega-3 Fatty Acids</li>
+                  </ul>
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="flex flex-col items-center py-10 animate-in fade-in duration-500">
+                  <Rating style={{ maxWidth: 180 }} value={rating} readOnly />
+                  <p className="mt-4 text-2xl font-bold text-slate-800">
+                    Customer Rating: {rating}/5
+                  </p>
+                  <p className="text-slate-400 mt-1">
+                    Based on 2 verified purchases
+                  </p>
+                  <button className="mt-6 text-sky-500 font-bold border border-sky-500 px-6 py-2 rounded-xl hover:bg-sky-500 hover:text-white transition-all">
+                    Write a Review
+                  </button>
+                </div>
+              </TabPanel>
+            </div>
+          </Tabs>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PetFoodDetails;
