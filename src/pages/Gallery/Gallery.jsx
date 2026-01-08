@@ -6,8 +6,21 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '../../components/Loader/Loading';
 import CoverImg from '../../components/common/CoverImg';
 
+<<<<<<< HEAD
 const Gallery = () => {
     const axiosPublic = useAxiosPublic()
+=======
+<<<<<<< HEAD
+const Gallery = () => {
+    const axiosPublic = useAxiosPublic()
+=======
+
+const Gallery = () => {
+
+    const axiosPublic = useAxiosPublic()
+
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
     const { data: galleries = [], isLoading } = useQuery({
         queryKey: ['galleries'],
         queryFn: async () => {
@@ -22,7 +35,15 @@ const Gallery = () => {
     }
 
     return (
+<<<<<<< HEAD
         <div className=''>
+=======
+<<<<<<< HEAD
+        <div className=''>
+=======
+        <div className='my-10'>
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
             {/* <div className=' mb-36'>
                 <img className='h-[450px] w-full object-cover rounded-xl ' src={gallery} alt="" />
 

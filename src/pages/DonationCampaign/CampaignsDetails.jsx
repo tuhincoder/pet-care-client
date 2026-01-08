@@ -1,5 +1,13 @@
 import { useLoaderData } from 'react-router-dom';
+<<<<<<< HEAD
 import detailsImg from '../../assets/images/category/pigeon/pigeonPl.jpg'
+=======
+<<<<<<< HEAD
+import detailsImg from '../../assets/images/category/pigeon/pigeonPl.jpg'
+=======
+import detailsImg from '../../assets/images/category/pigeon/pigeon1.jpg'
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
 import PetLisModal from '../PetListing/PetLisModal';
 import RidSiteOffer from '../PetListing/RidSiteOffer';
 import CoverImg from '../../components/common/CoverImg';

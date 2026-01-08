@@ -26,14 +26,31 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ToastContainer theme='dark' />
       <HelmetProvider>
         <AuthProvider>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
           <div className='max-w-screen-xl mx-auto'>
             <RouterProvider router={router}></RouterProvider>
           </div>
 
         </AuthProvider>
       </HelmetProvider>
+<<<<<<< HEAD
 
     </QueryClientProvider>
 
+=======
+<<<<<<< HEAD
+
+    </QueryClientProvider>
+
+=======
+    </QueryClientProvider>
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
   </React.StrictMode>,
 )

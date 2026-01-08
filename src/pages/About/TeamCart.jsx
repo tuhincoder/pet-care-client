@@ -12,8 +12,18 @@ const TeamCart = ({ member }) => {
                     <h3 className="capitalize  font-sans text-center">{member.title}</h3>
                 </div>
                 <div className="flex items-center justify-center mt-5 space-x-5 text-2xl">
+<<<<<<< HEAD
                     <a href={member.facBook}><FaFacebook className="hover:text-sky-400 duration-500 text-blue-500" /></a>
                     <a href={member.linkedin}><FaLinkedin className="duration-500 text-sky-400  " /></a>
+=======
+<<<<<<< HEAD
+                    <a href={member.facBook}><FaFacebook className="hover:text-sky-400 duration-500 text-blue-500" /></a>
+                    <a href={member.linkedin}><FaLinkedin className="duration-500 text-sky-400  " /></a>
+=======
+                    <a target="_blank" href={member.facBook}><FaFacebook className="hover:text-sky-400 duration-500 text-blue-500" /></a>
+                    <a target="_blank" href={member.linkedin}><FaLinkedin className="duration-500 text-sky-400  " /></a>
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
                     <a href=""><FaTwitter className="text-sky-400 duration-500 " /></a>
 
 

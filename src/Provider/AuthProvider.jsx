@@ -74,8 +74,18 @@ const AuthProvider = ({ children }) => {
             }
             else {
                 localStorage.removeItem('access-token')
+<<<<<<< HEAD
             }
             setLoading(false)
+=======
+<<<<<<< HEAD
+            }
+            setLoading(false)
+=======
+                setLoading(false)
+            }
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
 
 
             console.log('current user--->', currentUser);

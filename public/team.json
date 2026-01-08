@@ -1,29 +1,64 @@
 [
     {
         "name": "Mohsin Islam Mushfiq ",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/pnc5RdX/mohshin.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/pnc5RdX/mohshin.jpg",
+=======
+        "image": "https://i.ibb.co.com/k6Pk5Kp/mohshin.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "title": "team leader",
         "facBook": "https://www.facebook.com/MohsinIslamMushfiq",
         "linkedin": "https://www.linkedin.com/in/MohsinMushfiq/?fbclid=IwZXh0bgNhZW0CMTAAAR05024TZOhVjVpNf6eIz5M6xoGFlDuA8E7CCSfXAB7hZwHc1j1VdY3XhMo_aem_Aa6eMXJ56M3JQ2x9YAMVlGA9r5_r5vAxpq4ponkVUN3d6x_4ehlS2vRIRg-mgqSNtHsB6aLsTM0BnBB7B7mnjaPv"
     },
     {
         "name": "Sihabul Hasan",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/5RgbhkM/shihabul.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/5RgbhkM/shihabul.jpg",
+=======
+        "image": "https://i.ibb.co.com/6nJLZpV/sihabul.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "title": "Pet Trainer",
         "facBook": "https://www.facebook.com/sihabulhasan.me",
         "linkedin": "https://www.linkedin.com/in/sihabul/?fbclid=IwZXh0bgNhZW0CMTAAAR1dvI2qvVSIsHjZhPrVtmzQFlWw-PxFYWY3A_aXzciaYK9Nvl2YWB5k04g_aem_Aa4DODgiI8vH73u6_04zqTt3I3IXh86ajV6s-Mjb_L5nb7mMp_tp0gN2ppXoLBQTLucG5DR9JvnvD15klnc8nUqC"
     },
     {
         "name": "MD Habib",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/Dk37mSS/habib.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/Dk37mSS/habib.jpg",
+=======
+        "image": "https://i.ibb.co.com/Jm3cLbx/habib.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "title": "pet designer",
         "facBook": "https://www.facebook.com/habibur.dev",
         "linkedin": "ZzfBt5thuHcPUQJ9bvU_aem_Aa7KkeMjoPvGTw0CAh8H1vZmrCb_2Eqv3RLVWnWbd7V9VG98F6wQjJFWnYQhxixgyFgtZl4fGsW7IeaBymBjGqa3"
     },
     {
+<<<<<<< HEAD
         "_id": "4",
         "name": "A.R. Sakib ",
         "image": "https://i.ibb.co/WP4TnZq/shakib.jpg",
+=======
+<<<<<<< HEAD
+        "_id": "4",
+        "name": "A.R. Sakib ",
+        "image": "https://i.ibb.co/WP4TnZq/shakib.jpg",
+=======
+        "name": "A.R. Sakib ",
+        "image": "https://i.ibb.co.com/WkN6MrS/sakib.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "title": "pet doctor",
         "facBook": "https://www.facebook.com/a.r.sakib0"
     }

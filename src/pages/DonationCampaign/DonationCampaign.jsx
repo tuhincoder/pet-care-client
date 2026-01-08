@@ -22,7 +22,15 @@ const DonationCampaign = () => {
 
 
     return (
+<<<<<<< HEAD
         <div className=''>
+=======
+<<<<<<< HEAD
+        <div className=''>
+=======
+        <div className='mb-10'>
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
 
             <CoverImg image={petListingImg} text={'donation campaigns'}></CoverImg>
 

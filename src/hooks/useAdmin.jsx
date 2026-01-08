@@ -3,6 +3,10 @@ import useAxiosSecure from "./useAxiosSecure";
 import useAuth from "./useAuth";
 
 const useAdmin = () => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ce9b2de (Initial commit)
     const axiosSecure = useAxiosSecure()
     const { user, loading } = useAuth()
     const { data: isAdmin = [], isLoading: isAdminLoading } = useQuery({
@@ -17,4 +21,26 @@ const useAdmin = () => {
     return [isAdmin, isAdminLoading]
 };
 
+<<<<<<< HEAD
 export default useAdmin;
+=======
+export default useAdmin;
+=======
+  const axiosSecure = useAxiosSecure();
+  const { user, loading } = useAuth();
+  const { data: isAdmin = [], isLoading: isAdminLoading } = useQuery({
+    queryKey: [user?.email, "isAdmin"],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/user/admin/${user?.email}`);
+      // console.log(res.data.isAdmin);
+      return res.data?.isAdmin;
+    },
+  });
+
+  return [isAdmin, isAdminLoading];
+};
+
+export default useAdmin;
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)

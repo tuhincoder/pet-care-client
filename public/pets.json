@@ -1,7 +1,15 @@
 [
     {
         "name": "hiroshi",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/Tc2S5jZ/pigeon.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/Tc2S5jZ/pigeon.jpg",
+=======
+        "image": "https://i.ibb.co.com/VTwL3cD/pigeon2.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "pigeon",
         "age": 10,
         "country": "japan",
@@ -18,7 +26,15 @@
     },
     {
         "name": "luigi",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/99Kq2xk/pigeon1.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/99Kq2xk/pigeon1.jpg",
+=======
+        "image": "https://i.ibb.co.com/K7b4ndW/pigeon5.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "pigeon",
         "age": 5,
         "country": "italy",
@@ -35,7 +51,15 @@
     },
     {
         "name": "Maximilian Von Schnauzerstein",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/j3NHMhB/dog.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/j3NHMhB/dog.jpg",
+=======
+        "image": "https://i.ibb.co.com/KjcB6MP/dog1.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "dog",
         "age": 8,
         "country": "germany",
@@ -51,8 +75,18 @@
         "healthCondition": "Excellent"
     },
     {
+<<<<<<< HEAD
         "name": "Isabella Bella Bella Bella",
         "image": "https://i.ibb.co/94phxRk/dog1.jpg",
+=======
+<<<<<<< HEAD
+        "name": "Isabella Bella Bella Bella",
+        "image": "https://i.ibb.co/94phxRk/dog1.jpg",
+=======
+        "name": "Isabella Bella",
+        "image": "https://i.ibb.co.com/dLz8xjn/dog3.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "dog",
         "age": 7,
         "country": "italy",
@@ -69,7 +103,15 @@
     },
     {
         "name": "Sakura ",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/P9yPhks/cat.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/P9yPhks/cat.jpg",
+=======
+        "image": "https://i.ibb.co.com/5r6KCnv/inspiration6.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "cat",
         "age": 21,
         "country": "japan",
@@ -86,7 +128,15 @@
     },
     {
         "name": "Giovanni",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/BfVgNjp/cat1.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/BfVgNjp/cat1.jpg",
+=======
+        "image": "https://i.ibb.co.com/ySk2tSx/inspiration5.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "cat",
         "age": 32,
         "country": "japan",
@@ -103,7 +153,15 @@
     },
     {
         "name": "haru",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/Mkx01WY/rabbit.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/Mkx01WY/rabbit.jpg",
+=======
+        "image": "https://i.ibb.co.com/whMHTcL/rabbit2.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "rabbit",
         "age": 27,
         "country": "japan",
@@ -120,7 +178,15 @@
     },
     {
         "name": "Bianca",
+<<<<<<< HEAD
         "image": "https://i.ibb.co/SQ159Rj/rabbit1.jpg",
+=======
+<<<<<<< HEAD
+        "image": "https://i.ibb.co/SQ159Rj/rabbit1.jpg",
+=======
+        "image": "https://i.ibb.co.com/zHXcssT/rabbit1.jpg",
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
         "category": "rabbit",
         "age": 14,
         "country": "italy",

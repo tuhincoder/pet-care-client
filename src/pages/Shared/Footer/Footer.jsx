@@ -2,8 +2,18 @@ import logo from '../../../assets/images/logo/logo2.png'
 
 const Footer = () => {
     return (
+<<<<<<< HEAD
         <div className="bg-base-200 p-10">
             <footer className="footer text-base-content mb-10">
+=======
+<<<<<<< HEAD
+        <div className="bg-base-200 p-10">
+            <footer className="footer text-base-content mb-10">
+=======
+        <div className="bg-gray-200 p-10">
+            <footer className="footer text-base-content mb-10 ">
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
                 <div className="flex justify-between ">
                     <aside className='mr-5 md:mr-0'>
                         <img className='w-1/4' src={logo} alt="" />
@@ -36,7 +46,15 @@ const Footer = () => {
                     </nav>
                 </div>
             </footer>
+<<<<<<< HEAD
             <div className='divide-x-2'></div>
+=======
+<<<<<<< HEAD
+            <div className='divide-x-2'></div>
+=======
+            <div className='divider'></div>
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
             <aside>
                 <p className="text-center">Copyright © 2024 - All right reserved by pet care LTD</p>
             </aside>

@@ -1,5 +1,9 @@
 [
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ce9b2de (Initial commit)
         "_id": "1",
         "name": "cat",
         "image": "https://i.ibb.co/wdCW1Np/animal-cat-pet-kitten.jpg"
@@ -18,5 +22,24 @@
         "_id": "4",
         "name": "pigeon",
         "image": "https://i.ibb.co/L9Rwww6/49-flying-pigeon-in-the-woods.jpg"
+<<<<<<< HEAD
+=======
+=======
+        "name": "cat",
+        "image": "https://i.ibb.co.com/rbGm0G3/homecat.jpg"
+    },
+    {
+        "name": "rabbit",
+        "image": "https://i.ibb.co.com/SmctBvq/homerabit.jpg"
+    },
+    {
+        "name": "dog",
+        "image": "https://i.ibb.co.com/09jp6vJ/homedog.jpg"
+    },
+    {
+        "name": "pigeon",
+        "image": "https://i.ibb.co.com/dK2GSgj/hompi.jpg"
+>>>>>>> a45677b (Initial clean commit)
+>>>>>>> ce9b2de (Initial commit)
     }
 ]
