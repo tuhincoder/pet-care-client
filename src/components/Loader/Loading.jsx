@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ce9b2de (Initial commit)
-
-const Loading = () => {
-    return (
-
-        <div className=" h-[70vh] flex flex-col  justify-center  items-center">
-            <div>
-                <div className="   w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
-            </div>
-        </div>
-    );
-};
-
-<<<<<<< HEAD
-export default Loading;
-=======
-export default Loading;
-=======
 import { motion } from "framer-motion";
 
 const Loading = () => {
@@ -61,5 +40,3 @@ const Loading = () => {
 };
 
 export default Loading;
->>>>>>> a45677b (Initial clean commit)
->>>>>>> ce9b2de (Initial commit)

@@ -1,56 +1,9 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-=======
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
->>>>>>> a45677b (Initial clean commit)
->>>>>>> ce9b2de (Initial commit)
 import useAuth from "../../../hooks/useAuth";
 import ShoppingBadge from "../../../components/ShoppingBadge";
 
 const NavSideBar = () => {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ce9b2de (Initial commit)
-    const { user, logOutUser } = useAuth()
-
-
-    const handleLogOut = () => {
-        logOutUser()
-            .then(() => { })
-            .catch(err => console.log(err))
-    }
-
-    return (
-
-        <div className="">
-            <ul className="menu ">
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/petListing'>Pet Listing</Link></li>
-                <li><Link to='/donationCampaigns'>Donation Campaigns</Link></li>
-                <li><Link to='/gallery'>Gallery</Link></li>
-                <li><Link to='/inspiration'>Inspiration</Link></li>
-                <li><Link to='/about'>About Us</Link></li>
-                {user ? <button className="btn" onClick={handleLogOut}>LogOut</button> :
-                    <li><Link to='/login'>Login</Link></li>}
-                <button className="btn mt-5">
-                    <ShoppingBadge></ShoppingBadge>
-                </button>
-            </ul>
-        </div>
-
-    );
-};
-
-<<<<<<< HEAD
-export default NavSideBar;
-=======
-export default NavSideBar;
-=======
   const { user, logOutUser } = useAuth();
 
   const handleLogOut = () => {
@@ -59,14 +12,12 @@ export default NavSideBar;
       .catch((err) => console.log(err));
   };
 
-  // Framer Motion Variants for Stagger Effect
+  // Framer Motion Variants for Staggered Animation
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Protiti link 0.1 second por por ashbe
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -75,7 +26,6 @@ export default NavSideBar;
     visible: { x: 0, opacity: 1 },
   };
 
-  // Link styling helper
   const activeStyle =
     "bg-sky-50 text-sky-600 font-bold border-r-4 border-sky-500";
   const normalStyle =
@@ -97,6 +47,7 @@ export default NavSideBar;
       animate="visible"
       variants={containerVariants}
     >
+      {/* Navigation Links */}
       <ul className="space-y-2">
         {navLinks.map((link) => (
           <motion.li key={link.path} variants={itemVariants}>
@@ -112,20 +63,19 @@ export default NavSideBar;
         ))}
       </ul>
 
+      {/* Shopping & Auth Section */}
       <motion.div
         variants={itemVariants}
         className="mt-6 pt-6 border-t border-gray-100 space-y-4"
       >
-        {/* Shopping Cart / Badge */}
         <div className="flex items-center justify-between px-4 py-2 bg-sky-50 rounded-xl shadow-sm border border-sky-100">
           <span className="text-sm font-semibold text-sky-700">Your Cart</span>
           <ShoppingBadge />
         </div>
 
-        {/* Authentication Button */}
         {user ? (
           <button
-            className="w-full btn bg-red-50 hover:bg-red-500 text-red-500 hover:text-white border border-red-200 border-none transition-all duration-300"
+            className="w-full btn bg-red-50 hover:bg-red-500 text-red-500 hover:text-white border-none transition-all duration-300"
             onClick={handleLogOut}
           >
             Log Out
@@ -143,5 +93,3 @@ export default NavSideBar;
 };
 
 export default NavSideBar;
->>>>>>> a45677b (Initial clean commit)
->>>>>>> ce9b2de (Initial commit)

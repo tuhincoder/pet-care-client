@@ -1,56 +1,5 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ce9b2de (Initial commit)
-import { Link } from "react-router-dom";
-import NavSideBar from "./NavSideBar";
-import NavDropDown from "./NavDropDown";
-import logo from '../../../assets/images/logo/logo2.png'
-import NavItem from "./NavItem";
-
-
-const NavBar = () => {
-
-
-    return (
-
-        <div className="navbar  fixed top-0 z-10 w-full bg-white bg-opacity-95 h-24 rounded border-b-[1px]  max-w-screen-xl mx-auto shadow-xl">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                    </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-
-                        <NavSideBar />
-                    </ul>
-                </div>
-                <div className="hidden md:block">
-                    <Link className="flex flex-col px-4 justify-center items-center text-stone-600 ">
-                        <img className="w-8" src={logo} alt="" />
-                        <h2 className="text-2xl font-serif"> Pet Care</h2>
-                    </Link>
-                </div>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <NavItem></NavItem>
-                </ul>
-            </div>
-            <div className="navbar-end">
-                <NavDropDown />
-            </div>
-        </div>
-    );
-};
-
-<<<<<<< HEAD
-export default NavBar;
-=======
-export default NavBar;
-=======
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import useAuth from "../../../hooks/useAuth";
 import logo from "../../../assets/images/logo/logo2.png";
@@ -70,8 +19,6 @@ const NavBar = () => {
 
   return (
     <div className="flex justify-center">
-      {" "}
-      {/* Container to center the navbar on large screens */}
       <nav className="navbar fixed top-0 z-50 w-full max-w-screen-xl mx-auto bg-white bg-opacity-95 backdrop-blur-sm border-b h-20 md:h-24 px-4 shadow-md lg:rounded-b-xl">
         {/* --- LEFT: Mobile Menu & Logo --- */}
         <div className="navbar-start flex items-center">
@@ -96,7 +43,7 @@ const NavBar = () => {
             </svg>
           </button>
 
-          {/* Logo (Desktop & Mobile) */}
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img className="w-8 md:w-10" src={logo} alt="Pet Care" />
             <h2 className="text-xl md:text-2xl font-serif font-bold text-stone-700 hidden sm:block">
@@ -156,11 +103,12 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
+
       {/* --- SIDEBAR (Framer Motion) --- */}
       <AnimatePresence>
         {isSidebarOpen && (
           <>
-            {/* Background Overlay */}
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -199,5 +147,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
->>>>>>> a45677b (Initial clean commit)
->>>>>>> ce9b2de (Initial commit)

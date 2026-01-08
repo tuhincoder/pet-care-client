@@ -1,9 +1,5 @@
 # Logs
-<<<<<<< HEAD
-logs
-=======
 logs/
->>>>>>> ce9b2de (Initial commit)
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -11,19 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-<<<<<<< HEAD
-=======
 # Dependencies & build
->>>>>>> ce9b2de (Initial commit)
 node_modules
 dist
 dist-ssr
 *.local
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ce9b2de (Initial commit)
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

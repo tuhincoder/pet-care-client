@@ -1,51 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ce9b2de (Initial commit)
-
-import { useForm } from "react-hook-form";
-import Accordion from "./Accordion";
-
-
-const Faq = () => {
-    const { register, handleSubmit } = useForm()
-    const onSubmit = (data) => console.log(data)
-
-
-
-    return (
-        <div className="px-5 md:px-3 lg:px-0">
-            <div className=" bg-sky-50 rounded py-5 ">
-                <div className="flex justify-between flex-col lg:flex-row items-center">
-                    <div className="flex-1  md:px-24 ">
-                        <h2 className="text-5xl text-center font-bold mb-5 uppercase font-serif">Contact</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="flex gap-3 mb-6">
-                                <input type="text" className=" w-full input input-bordered" {...register("name", { required: true })} placeholder="Enter your name" />
-                                <input {...register('email', { required: true })} type="email" className=" w-full input input-bordered" placeholder="Enter Your Email" />
-                            </div>
-                            <input {...register('subject', { required: true })} type="text" className="input mb-5 input-bordered w-full" placeholder="Your subject" />
-                            <textarea  {...register('textarea', { required: true })} className=" mb-5 textarea textarea-bordered w-full textarea-lg" name="" id="" placeholder="Your message"></textarea>
-                            <input className="btn btn-outline duration-200 w-full border-sky-400" type="submit" />
-                            {/* <Button></Button> */}
-                        </form>
-                    </div>
-                    {/* faq */}
-                    <div className="flex-1">
-                        <h1 className="text-5xl text-center font-bold mb-5 uppercase font-serif">FAQ</h1>
-                        <Accordion></Accordion>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-<<<<<<< HEAD
-export default Faq;
-=======
-export default Faq;
-=======
 import { useForm } from "react-hook-form";
 import Accordion from "./Accordion";
 import { motion } from "framer-motion";
@@ -56,14 +8,14 @@ const Faq = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    reset(); // Form submit hoye gele clean hobe
+    reset(); // Form submit হলে clean হবে
   };
 
   return (
-    <section className="py-16 md:py-24 bg-white shadow overflow-hidden">
+    <section className="pt-10 bg-white  overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
-        {/* Main Wrapper with Background Detail */}
-        <div className="bg-sky-50/50 rounded-[3rem] p-6 md:p-12 lg:p-16 border border-white shadow-sm">
+        {/* Main Wrapper */}
+        <div className=" rounded-[3rem] p-6  border border-white shadow-sm">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             {/* LEFT: CONTACT FORM */}
             <motion.div
@@ -161,7 +113,6 @@ const Faq = () => {
                 <Accordion />
               </div>
 
-              {/* Decorative Quote or Helper Text */}
               <div className="mt-10 p-6 border-l-4 border-sky-400 bg-sky-100/30 rounded-r-2xl italic text-slate-600">
                 "Didn't find what you were looking for? Feel free to drop us a
                 message and our experts will get back to you within 24 hours."
@@ -175,5 +126,3 @@ const Faq = () => {
 };
 
 export default Faq;
->>>>>>> a45677b (Initial clean commit)
->>>>>>> ce9b2de (Initial commit)

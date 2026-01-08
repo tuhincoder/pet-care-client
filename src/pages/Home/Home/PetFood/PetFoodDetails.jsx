@@ -21,7 +21,7 @@ const PetFoodDetails = () => {
     const [, refetch] = useCart()
 
 
-    const { _id, name, image, price, rating, customerReview, sku, longDescription, notPrice } = details || {};
+    const { _id, name, image, price, rating,  sku, longDescription, notPrice } = details || {};
     console.log(details.photos);
 
 
