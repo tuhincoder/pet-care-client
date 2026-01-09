@@ -15,7 +15,7 @@ const AllPets = () => {
   return (
     <div className="pb-20">
       {/* --- Hero Banner Section --- */}
-      <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden rounded-b-[40px] md:rounded-b-[80px] shadow-lg">
+      <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden  shadow-lg">
         <img
           className="h-full w-full object-cover"
           src={allPetsImg}

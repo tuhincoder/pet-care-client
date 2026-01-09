@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import detailsBanner from "../../assets/images/category/cats/details.jpg";
 import RidSiteOffer from "../PetListing/RidSiteOffer";
 import PetLisModal from "../PetListing/PetLisModal";
@@ -25,6 +25,11 @@ const AllPetDetails = () => {
     color,
     vaccinationStatus,
   } = petDetails || {};
+  const navigate = useNavigate();
+  const handleBack = (e) => {
+    e.preventDefault();
+    navigate(-1);
+  };
 
   return (
     <div className="bg-white min-h-screen">
@@ -44,8 +49,9 @@ const AllPetDetails = () => {
             >
               Meet {name}
             </motion.h2>
-            <p className="text-sky-300 font-medium tracking-widest uppercase text-sm md:text-lg">
-              Home / Pet Details / {category}
+            <p className="text-sky-300 mt-4 font-medium tracking-widest uppercase text-sm md:text-lg">
+              <Link onClick={handleBack}>Back</Link> /{" "}
+              <Link to={"/"}>Home</Link> / {category}
             </p>
           </div>
         </div>

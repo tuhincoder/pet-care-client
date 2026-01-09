@@ -16,13 +16,13 @@ const Banner = () => {
           Time
         </>
       ),
-      desc: "Cats are small, carnivorous mammals known for their agility and grace. They make delightful companions for your home.",
+      desc: "Cats are small, carnivorous mammals known for their agility and grace. They make delightful companions.",
     },
     {
       title: (
         <>
-          Urban Companions <br />{" "}
-          <span className="text-sky-400">The Resilient Beauty</span>
+          Urban <span className="text-sky-400">Companions</span> <br />{" "}
+          Resilient Beauty
         </>
       ),
       desc: "Pigeons: Graceful urban dwellers known for their adaptability and iridescent feathers.",
@@ -30,8 +30,8 @@ const Banner = () => {
     {
       title: (
         <>
-          Loyal Companions <br />{" "}
-          <span className="text-sky-400">Heart and Soul</span>
+          Loyal <span className="text-sky-400">Companions</span> <br /> Heart
+          and Soul
         </>
       ),
       desc: "Dogs are known for their loyalty and unconditional love, making them the perfect family companion.",
@@ -39,7 +39,7 @@ const Banner = () => {
     {
       title: (
         <>
-          The Charm and <br /> <span className="text-sky-400">Grace of</span>{" "}
+          The Charm <span className="text-sky-400">and Grace</span> <br /> of
           Rabbits
         </>
       ),
@@ -54,43 +54,47 @@ const Banner = () => {
     return () => clearInterval(timer);
   }, [images.length]);
 
-  const goToPage = (index) => {
-    setPage(index);
-  };
+  const goToPage = (index) => setPage(index);
 
   return (
-    <div className="max-w-screen-xl mx-auto px-4 mt-24">
-      <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden shadow-xl bg-slate-900 ">
+    // Mobile-e full width rakhar jonno 'px-0' use kora hoyeche, desktop-e 'px-4'
+    <div className="max-w-screen-xl mx-auto px-0 md:px-4 mt-16 md:mt-24">
+      {/* Mobile Height fixed to 400px, Desktop 600px */}
+      <div className="relative w-full h-[450px] md:h-[600px] overflow-hidden shadow-xl bg-slate-900 md:rounded-3xl">
+        {/* Background Image Container */}
         <div className="absolute inset-0 w-full h-full">
           <img
             src={images[page]}
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-50 md:opacity-60"
             alt="Banner"
           />
-
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent"></div>
+          {/* Overlay Gradient: Mobile-e arektu dark rakha hoyeche content clear rakhar jonno */}
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-950 via-slate-900/60 to-transparent"></div>
         </div>
 
+        {/* Content Section */}
         <div className="relative h-full flex items-center px-6 md:px-16">
-          <div className="max-w-2xl text-white space-y-6">
-            <h2 className="text-4xl md:text-7xl font-serif font-extrabold leading-[1.1] capitalize">
+          <div className="max-w-2xl text-white space-y-4 md:space-y-6">
+            <h2 className="text-3xl md:text-7xl font-serif font-extrabold leading-tight capitalize">
               {content[page].title}
             </h2>
-            <p className="text-base md:text-xl text-slate-300 leading-relaxed max-w-lg">
+            <p className="text-sm md:text-xl text-slate-300 leading-relaxed max-w-md line-clamp-3 md:line-clamp-none">
               {content[page].desc}
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <button className="px-8 py-3.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-sky-500/20 active:scale-95">
+            {/* Fixed Buttons for Mobile & Desktop */}
+            <div className="flex flex-row gap-3 md:gap-4 pt-2 md:pt-4">
+              <button className="flex-1 md:flex-none px-4 md:px-8 py-3 bg-sky-500 hover:bg-sky-600 text-white text-xs md:text-base font-bold rounded-lg md:rounded-xl transition-all active:scale-95 shadow-lg shadow-sky-500/20">
                 Book Appointment
               </button>
-              <button className="px-8 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl backdrop-blur-md border border-white/10 transition-all active:scale-95">
+              <button className="flex-1 md:flex-none px-4 md:px-8 py-3 bg-white/10 hover:bg-white/20 text-white text-xs md:text-base font-bold rounded-lg md:rounded-xl backdrop-blur-md border border-white/20 transition-all active:scale-95">
                 Explore More
               </button>
             </div>
           </div>
         </div>
 
+        {/* Desktop Navigation Arrows (Hidden on Mobile) */}
         <div className="absolute hidden md:flex gap-3 bottom-10 right-12 z-20">
           <button
             onClick={() => goToPage(page === 0 ? images.length - 1 : page - 1)}
@@ -106,16 +110,16 @@ const Banner = () => {
           </button>
         </div>
 
-        {/* Indicators / Progress Dots */}
-        <div className="absolute bottom-8 left-6 md:left-16 flex gap-3 z-20">
+        {/* Indicators: Mobile-e center kora hoyeche */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-16 flex gap-2 md:gap-3 z-20">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => goToPage(index)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
+              className={`h-1.5 rounded-full transition-all duration-300 ${
                 index === page
-                  ? "bg-sky-400 w-10"
-                  : "bg-white/30 w-4 hover:bg-white/50"
+                  ? "bg-sky-400 w-8 md:w-10"
+                  : "bg-white/30 w-3 md:w-4"
               }`}
             />
           ))}
